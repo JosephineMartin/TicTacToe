@@ -1,9 +1,13 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-void CreateBoard()
+vector<vector<int> > CreateBoard()
 {
-  int array[3][3];
+  vector<vector<int> > v{ { 0, 0, 0 },
+                          { 0, 0, 0 },
+                          { 0, 0, 0 } };
+  return v;
 }
 
 int main()
