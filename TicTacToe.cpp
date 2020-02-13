@@ -10,22 +10,22 @@ vector<vector<int> > CreateBoard()
   return v;
 }
 
-void DisplayBoard(vector<vector<int>> v) 
+void DisplayBoard(vector<vector<int> > v)
 {
-		for (int row = 0; row < 3; row++)
-		{
-			cout << "|";
-			for (int col = 0; col < 3; col++)
-			{
-				cout << v[row][col] << "|";
-			}
-			cout << endl;
-		}
+  for (int i = 0; i<(int)v.size(); i++)
+  {
+    cout << "|";
+    for (int j = 0; j<(int)v[i].size(); j++)
+    {
+      cout << v[i][j] << "|";
+    }
+    cout << endl;
+  }
 }
 
 int main()
 {
-	vector<vector<int>> vec = CreateBoard();
-	DisplayBoard(vec);
+  vector<vector<int>> v = CreateBoard();
+  DisplayBoard(v);
   return 0;
 }
