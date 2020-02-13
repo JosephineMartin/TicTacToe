@@ -14,9 +14,10 @@ void DisplayBoard(vector<vector<int> > v)
 {
   for (int i = 0; i<(int)v.size(); i++)
   {
+    cout << "|";
     for (int j = 0; j<(int)v[i].size(); j++)
     {
-      cout << v[i][j] << " ";
+      cout << v[i][j] << "|";
     }
     cout << endl;
   }
