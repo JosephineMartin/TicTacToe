@@ -28,7 +28,7 @@ void DisplayBoard(vector<vector<std::string> > v)
 vector<int> GetPlayerChoice()
 {
   string choice;
-  cout << "Where whould you like to play? Format (x,y)" << endl;
+  cout << "Where would you like to play? Format (x,y)" << endl;
   getline(cin, choice);
   vector<int> v;
   stringstream sstream(choice);
@@ -55,7 +55,7 @@ int main()
 {
   vector<vector<std::string>> v = CreateBoard();
   DisplayBoard(v);
-  
+
   vector<int> choice;
   std::string marker;
 
