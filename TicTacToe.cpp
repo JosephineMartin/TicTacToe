@@ -3,15 +3,15 @@
 #include <sstream>
 using namespace std;
 
-vector<vector<int> > CreateBoard()
+vector<vector<std::string> > CreateBoard()
 {
-  vector<vector<int> > v{ { 0, 0, 0 },
-                          { 0, 0, 0 },
-                          { 0, 0, 0 } };
+  vector<vector<std::string> > v{ { " ", " ", " " },
+                          { " ", " ", " " },
+                          { " ", " ", " " } };
   return v;
 }
 
-void DisplayBoard(vector<vector<int> > v)
+void DisplayBoard(vector<vector<std::string> > v)
 {
   for (int i = 0; i<(int)v.size(); i++)
   {
@@ -41,14 +41,44 @@ vector<int> GetPlayerChoice()
   return v;
 }
 
+// PlaceMarker places the marker on the board and returns new board
+vector<vector<std::string> > PlaceMarker(vector<int> choice, std::string marker, vector<vector<std::string> > board)
+{
+  int row = choice[0];
+  int col = choice[1];
+  board[row][col] = marker;
+  return board;
+}
+
 
 int main()
 {
-  vector<vector<int>> v = CreateBoard();
+  vector<vector<std::string>> v = CreateBoard();
   DisplayBoard(v);
   
-  vector<int> choice = GetPlayerChoice();
-  cout << choice[0] << " "<< choice[1] <<endl;
+  vector<int> choice;
+  std::string marker;
+
+  for (int i = 0; i < 4; ++i)
+  {
+    // Player 1's turn
+    marker = "X";
+    choice = GetPlayerChoice();
+    v = PlaceMarker(choice, marker, v);
+    DisplayBoard(v);
+
+    // Player 2's turn
+    marker = "O";
+    choice = GetPlayerChoice();
+    v = PlaceMarker(choice, marker, v);
+    DisplayBoard(v);
+  }
+
+  // final turn
+  marker = "X";
+  choice = GetPlayerChoice();
+  v = PlaceMarker(choice, marker, v);
+  DisplayBoard(v);
 
   return 0;
 }
